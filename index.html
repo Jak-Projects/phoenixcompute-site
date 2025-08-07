@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhoenixCompute - Insights</title>
+
+    <!-- A cdn.tailwindcss.com should not be used in production. This is a student project not ready for full build yet. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Open+Sans:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: "Inter", "Open Sans", sans-serif; }
+      .hero-scroller { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+      .scroller-track { display: flex; align-items: center; gap: 3.5rem; width: max-content; padding: 2rem 0; animation: scrollX 40s linear infinite; }
+      @keyframes scrollX { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+      .hero-scroller .scroller-track:nth-of-type(2) { animation-delay: -20s; }
+      @media (prefers-reduced-motion: reduce) { .scroller-track { animation: none; } }
+      .no-aos [data-aos] { opacity: 1 !important; transform: none !important; visibility: visible !important; }
+      #p2pChart { width: 100% !important; height: 100% !important; display: block; }
+      .brand-logo { font-family: 'Space Grotesk', 'Inter', 'Open Sans', sans-serif; letter-spacing: 0.02em; }
+      .hero-img { height: 6rem; opacity: 0.92; mix-blend-mode: multiply; filter: contrast(1.2) saturate(1.05); }
+      @media (min-width: 768px) { .hero-img { height: 7rem; } }
+      @media (min-width: 1024px) { .hero-img { height: 8rem; } }
+      .glass { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    </style>
+  </head>
+
+  <body class="bg-gradient-to-b from-black via-gray-900 to-white text-slate-100 antialiased no-aos">
+    <nav class="bg-black/40 backdrop-blur-md sticky top-0 z-50 border-b border-gray-800">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <h1 class="brand-logo text-2xl font-bold tracking-tight text-white">PhoenixCompute</h1>
+        <a href="#join" class="px-5 py-2 rounded-2xl bg-rose-600 text-white font-medium shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-rose-500">Join Now</a>
+      </div>
+    </nav>
+
+    <header class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/30 via-purple-500/30 to-sky-500/30 opacity-30 -z-10 pointer-events-none"></div>
+
+      <div class="hero-scroller" aria-hidden="true">
+        <div class="scroller-track">
+          <img src="https://i.imgur.com/4RQ2KYc.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/GR7GsY6.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/MDd8jE6.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/pAxpjX9.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/UooB2C6.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/JXhxSQS.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/venHtD7.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/x4v1PO2.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/7jZYV6d.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/L61wpar.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/U3UbJRz.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/P3l289X.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/cdlRFvj.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/DxBLj2m.png" alt="" class="hero-img" />
+        </div>
+        <div class="scroller-track" aria-hidden="true">
+          <img src="https://i.imgur.com/4RQ2KYc.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/GR7GsY6.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/MDd8jE6.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/pAxpjX9.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/UooB2C6.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/JXhxSQS.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/venHtD7.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/x4v1PO2.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/7jZYV6d.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/L61wpar.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/U3UbJRz.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/P3l289X.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/cdlRFvj.png" alt="" class="hero-img" />
+          <img src="https://i.imgur.com/DxBLj2m.png" alt="" class="hero-img" />
+        </div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 py-24" data-aos="fade-up">
+        <div class="inline-block bg-black/40 glass ring-1 ring-white/10 rounded-xl px-4 py-3 shadow-lg">
+          <h2 class="text-5xl md:text-6xl font-extrabold leading-tight text-white">Science-backed insights<br />for better hardware decisions</h2>
+        </div>
+        <div class="mt-4 inline-block bg-black/35 glass ring-1 ring-white/10 rounded-lg px-4 py-3">
+          <p class="text-lg md:text-xl max-w-2xl text-slate-200">We crunch validated benchmarking data so you can invest in the perfect mix of power and value.</p>
+        </div>
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <a href="#panels" class="inline-flex items-center px-8 py-4 rounded-2xl bg-indigo-600 text-white font-semibold shadow-lg hover:shadow-indigo-700 hover:scale-105 transition">Get real time access for price-to-performance metrics.</a>
+          <a href="#join" class="inline-flex items-center px-6 py-3 rounded-2xl bg-rose-600 text-white font-semibold shadow-lg hover:shadow-rose-700 transition focus:outline-none focus:ring-2 focus:ring-rose-500">Sign up for Quality Metrics</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="panels" class="relative z-10 max-w-7xl mx-auto px-6 py-20" data-aos="fade-up">
+      <h3 class="text-3xl font-bold mb-12 text-white">Get real-time access for price-to-performance.</h3>
+
+      <div class="grid gap-8 md:grid-cols-3">
+        <article class="bg-white/10 backdrop-blur-lg border border-gray-700 rounded-[3rem] p-8 shadow-xl hover:scale-105 hover:shadow-2xl transition relative">
+          <h4 class="text-xl font-semibold mb-1 text-white">Ryzen 7 7800X3D</h4>
+          <p class="text-sm text-gray-400 mb-5">Gaming & content creation</p>
+          <div class="space-y-2 text-gray-200">
+            <div class="flex justify-between"><span class="font-medium">Benchmark score</span><span>9.6</span></div>
+            <div class="flex justify-between"><span class="font-medium">Cost per score</span><span>$35</span></div>
+            <div class="flex justify-between"><span class="font-medium">TDP</span><span>120 W</span></div>
+          </div>
+          <span class="absolute top-6 right-6 inline-flex items-center rounded-full bg-emerald-500/20 px-3 py-1 text-sm font-medium text-emerald-300 border border-emerald-400/40">Top value</span>
+        </article>
+
+        <article class="bg-white/10 backdrop-blur-lg border border-gray-700 rounded-[3rem] p-8 shadow-xl hover:scale-105 hover:shadow-2xl transition relative">
+          <h4 class="text-xl font-semibold mb-1 text-white">Core i9-14900K</h4>
+          <p class="text-sm text-gray-400 mb-5">High-frequency workloads</p>
+          <div class="space-y-2 text-gray-200">
+            <div class="flex justify-between"><span class="font-medium">Benchmark score</span><span>9.2</span></div>
+            <div class="flex justify-between"><span class="font-medium">Cost per score</span><span>$55</span></div>
+            <div class="flex justify-between"><span class="font-medium">TDP</span><span>253 W</span></div>
+          </div>
+        </article>
+
+        <article class="bg-white/10 backdrop-blur-lg border border-gray-700 rounded-[3rem] p-8 shadow-xl hover:scale-105 hover:shadow-2xl transition relative">
+          <h4 class="text-xl font-semibold mb-1 text-white">Apple M4 Max</h4>
+          <p class="text-sm text-gray-400 mb-5">Mobile production</p>
+          <div class="space-y-2 text-gray-200">
+            <div class="flex justify-between"><span class="font-medium">Benchmark score</span><span>8.8</span></div>
+            <div class="flex justify-between"><span class="font-medium">Cost per score</span><span>$80</span></div>
+            <div class="flex justify-between"><span class="font-medium">TDP</span><span>45 W</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="mt-12 bg-white/10 backdrop-blur-lg border border-gray-700 rounded-[3rem] p-6 shadow-xl max-w-xl mx-auto overflow-hidden">
+        <div class="flex items-center justify-between mb-2">
+          <h4 class="text-xl font-semibold text-white">Phoenix metrics snapshot</h4>
+          <span class="text-xs text-gray-400">sample values</span>
+        </div>
+        <div class="h-[180px]">
+          <canvas id="p2pChart"></canvas>
+        </div>
+        <p class="mt-3 text-xs text-gray-400">Value Index (0-10, higher is better). Normalized Cost (0-10, lower is better).</p>
+      </div>
+
+      <p class="text-center text-sm text-gray-400 mt-8">* Replace with your own PhoenixCompute metrics when ready.</p>
+    </section>
+
+    <section id="database" class="relative z-10 bg-gray-100/5 py-20 border-t border-gray-700" data-aos="fade-up">
+      <div class="max-w-7xl mx-auto px-6">
+        <h3 class="text-3xl font-bold mb-12 text-white">Database fundamentals</h3>
+        <div class="grid md:grid-cols-2 gap-12">
+          <div class="space-y-6 text-gray-300">
+            <div>
+              <h4 class="text-xl font-semibold mb-2 text-white">ACID principles</h4>
+              <p>Atomicity, Consistency, Isolation, and Durability guarantee reliable transactions even amid system interruptions.</p>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold mb-2 text-white">Normalization</h4>
+              <p>Structuring data into dedicated tables minimizes redundancy and preserves integrity, typically through third normal form.</p>
+            </div>
+          </div>
+          <div class="space-y-6 text-gray-300">
+            <div>
+              <h4 class="text-xl font-semibold mb-2 text-white">Indexing</h4>
+              <p>Well-planned indexes accelerate queries by creating ordered mappings, though over-indexing can slow writes.</p>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold mb-2 text-white">Backup strategies</h4>
+              <p>Combine full plus incremental backups with off-site replication to maintain business continuity and meet recovery time objectives.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai" class="relative z-10 py-20 border-t border-gray-700" data-aos="fade-up">
+      <div class="max-w-7xl mx-auto px-6">
+        <h3 class="text-3xl font-bold mb-6 text-white">AI-based information systems</h3>
+        <p class="text-gray-300 max-w-3xl mb-10">Modern stacks blend relational backbones with vector search and model-driven services. Use AI to enrich decision support while preserving correctness via proven database practices.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white/10 border border-gray-700 rounded-[2rem] p-6">
+            <h4 class="text-lg font-semibold text-white mb-2">RAG + SQL</h4>
+            <p class="text-gray-300">Pair Retrieval-Augmented Generation with your canonical warehouse so AI responses will pull data.</p>
+          </div>
+          <div class="bg-white/10 border border-gray-700 rounded-[2rem] p-6">
+            <h4 class="text-lg font-semibold text-white mb-2">Feature stores</h4>
+            <p class="text-gray-300">Centralize versioned features for consistent model training and inference across teams.</p>
+          </div>
+          <div class="bg-white/10 border border-gray-700 rounded-[2rem] p-6">
+            <h4 class="text-lg font-semibold text-white mb-2">Observability & drift</h4>
+            <p class="text-gray-300">Monitor data and model drift; trigger re-training and rollbacks to keep quality high.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section id="join" class="relative z-50 max-w-md mx-auto px-6 py-24 pointer-events-auto" data-aos="zoom-in">
+      <h3 class="text-2xl font-semibold text-center mb-4 text-white">Unlock full access</h3>
+      <p class="text-center text-black mb-8">Get weekly insights, downloadable datasets, and personalised hardware picks.</p>
+      <form class="space-y-4 relative z-50 pointer-events-auto">
+        <input type="email" id="email" name="email" autocomplete="email" required placeholder="Email address" class="w-full p-4 rounded-2xl border border-gray-500 bg-black/40 text-white placeholder-gray-400 focus:ring-2 focus:ring-rose-500 focus:outline-none pointer-events-auto" />
+        <button type="submit" class="w-full py-4 rounded-2xl bg-rose-600 text-white font-medium shadow-lg hover:shadow-xl transition focus:outline-none focus:ring-2 focus:ring-rose-500 pointer-events-auto">Get started</button>
+      </form>
+      <p class="text-xs text-gray-500 text-center mt-4">No spam. Cancel anytime.</p>
+    </section>
+
+    <section class="relative z-10 max-w-7xl mx-auto px-6 pb-10 -mt-6">
+      <div class="bg-white/5 border border-gray-700 rounded-2xl p-5 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="inline-block h-3 w-3 rounded-full bg-rose-500 ring-2 ring-rose-300/30"></span>
+          <div>
+            <p class="text-sm text-black">Author:</p>
+            <p class="text-black font-semibold">Bradley Jakubek</p>
+          </div>
+        </div>
+        <a href="https://jak-projects.github.io/Jak-Project.Github.io/" target="_blank" rel="noopener" class="px-4 py-2 rounded-xl bg-rose-600 text-white font-medium hover:bg-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-500">Business card</a>
+      </div>
+    </section>
+
+    <footer class="bg-black/60 text-gray-400 py-10 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6">
+        <p>© 2025 PhoenixCompute</p>
+        <div class="flex gap-4 text-sm">
+          <a href="#" class="hover:text-white">Privacy</a>
+          <a href="#" class="hover:text-white">Terms</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script>
+      try { if (window.AOS) { AOS.init({ duration: 800, once: true }); document.body.classList.remove('no-aos'); } }
+      catch (e) { console.warn('AOS init skipped:', e); }
+
+      (function () {
+        var canvas = document.getElementById('p2pChart');
+        if (!canvas || !window.Chart) return;
+        var ctx = canvas.getContext('2d');
+        var data = {
+          labels: ['Ryzen 7 7800X3D', 'Core i9-14900K', 'Apple M4 Max'],
+          datasets: [
+            { label: 'Value Index', data: [9.6, 9.2, 8.8], type: 'bar', borderWidth: 0, backgroundColor: 'rgba(99,102,241,0.65)' },
+            { label: 'Normalized Cost', data: [3.5, 5.5, 8.0], type: 'line', yAxisID: 'y2', tension: 0.35, borderColor: 'rgba(244,63,94,1)', backgroundColor: 'rgba(244,63,94,0.2)', pointRadius: 3, borderWidth: 2, fill: false }
+          ]
+        };
+        Chart.defaults.color = '#cbd5e1';
+        Chart.defaults.borderColor = 'rgba(148,163,184,0.15)';
+      new Chart(ctx, {
+        type: 'bar',
+         data: data,
+         options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				plugins: { legend: { labels: { color: '#e5e7eb' } }, tooltip: { enabled: true } },
+				scales: {
+				x: { ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(148,163,184,0.15)' } },
+				y: { ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(148,163,184,0.15)' }, beginAtZero: true, suggestedMax: 10 },
+				y2: { position: 'right', ticks: { color: '#cbd5e1' }, grid: { drawOnChartArea: false }, suggestedMin: 0, suggestedMax: 10 }
+            }
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
